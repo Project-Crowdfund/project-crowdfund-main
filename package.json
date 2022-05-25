@@ -4,8 +4,8 @@
   "description": "Main component of Project Crowdfund, access example.com/crowdfund for more info.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm ci && tsc build",
-    "start": "ts-node ."
+    "build": "tsc .",
+    "debug/start": "ts-node ./index"
   },
   "author": "Ryan Salazar",
   "license": "GPL-3.0-or-later",
