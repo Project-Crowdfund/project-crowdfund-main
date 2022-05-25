@@ -1,14 +1,18 @@
+/* Visit https://aka.ms/tsconfig to read more about this file */
+
 {
   "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["ES2015"],
     "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "allowJs": true,
-    "checkJs": false,
     "resolveJsonModule": true,
-  },
-  "lib": ["es2015"]
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  }
 }
