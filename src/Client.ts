@@ -18,9 +18,7 @@ class Client extends Discord.Client {
     }
 
     public start(): void {
-        super.on('ready', async () => {
-            console.log(`Bot with username, ${this.user?.username}`);
-        })
     }
 }
+
 export default Client;
