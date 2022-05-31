@@ -1,0 +1,37 @@
+# This workflow should verify code quality and build the project to test for errors.
+
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/**'
+      - '*.ts'
+      - 'package.json'
+      - 'tsconfig.json'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  
+  setup:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+        operating-system: [ ubuntu-latest, windows-latest, macos-latest ]
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+
+  
+  build:
+    needs: [ setup ]
+    steps:
+    - run: npm run build --if-present
